@@ -11,6 +11,37 @@
 |
 */
 
+/*
+Esto es raro... en 7 el archivo routes.php está en otro lado... no te líes Oscar que te conoces bien...
+*/
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/welcome', function () {
+    return "Hello world";
+});
+
+Route::post('/welcome', function () {
+    return "Hello world";
+});
+
+Route::put('/welcome', function () {
+    return "Hello world";
+});
+
+Route::delete('/welcome', function () {
+    return "Hello world";
+});*/
+
+/*Si son todos se puede cambiar match por any*/
+/*Route::match(['get', 'post', 'put', 'delete'], 'welcome', function() {
+    return "Some random text...";
+});*/
+
+Route::any('welcome', function() {
+    $url = url('welcome');
+    return "This is: $url";
+});
+
