@@ -40,8 +40,7 @@ Route::delete('/welcome', function () {
     return "Some random text...";
 });*/
 
-Route::any('welcome', function() {
-    $url = url('welcome');
-    return "This is: $url";
+Route::get('post/{id}', function($id) {
+    return "Retrieving the post with id $id";
 });
 
