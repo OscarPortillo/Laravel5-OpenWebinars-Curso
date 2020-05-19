@@ -46,10 +46,15 @@ Route::pattern('hex', '[a-f0-9]+');
 Route::get('hexroute/{hex?}', function($hex = null) {
 	return $hex;
 });
-Route::get('post/{id?}', function($id = null) {
+/*Route::get('post/{id?}', function($id = null) {
 	if($id === null) {
 		return "id not specified";
 	}
     return "Retrieving the post with id $id";
-});
+});*/
 
+Route::get('user/{id}/profile', ['as' => 'profile', function($id) {
+	$url = route('profile', ['id' => $id]);
+	$badUrl = 'user/'.$id.'/profile';
+    return "Retrieving profile $url";
+}]);
