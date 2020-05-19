@@ -40,7 +40,10 @@ Route::delete('/welcome', function () {
     return "Some random text...";
 });*/
 
-Route::get('post/{id}', function($id) {
+Route::get('post/{id?}', function($id = null) {
+	if($id === null) {
+		return "id not specified";
+	}
     return "Retrieving the post with id $id";
 });
 
