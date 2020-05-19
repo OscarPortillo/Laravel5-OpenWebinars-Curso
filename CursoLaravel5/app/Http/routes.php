@@ -53,8 +53,18 @@ Route::get('hexroute/{hex?}', function($hex = null) {
     return "Retrieving the post with id $id";
 });*/
 
-Route::get('user/{id}/profile', ['as' => 'profile', function($id) {
+/*Route::get('user/{id}/profile', ['as' => 'profile', function($id) {
 	$url = route('profile', ['id' => $id]);
 	$badUrl = 'user/'.$id.'/profile';
     return "Retrieving profile $url";
-}]);
+}]);*/
+
+Route::group(['prefix' => 'user'],
+	function() {
+		Route::get('/', function() {
+			return '/user';
+		});
+		Route::get('profile', function () {
+			return 'user/profile';
+		});
+	});
