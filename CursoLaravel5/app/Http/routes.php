@@ -39,7 +39,13 @@ Route::delete('/welcome', function () {
 /*Route::match(['get', 'post', 'put', 'delete'], 'welcome', function() {
     return "Some random text...";
 });*/
+//Expresiones regulares
+Route::pattern('id', '\d+');//indica que solo acepta números
+Route::pattern('hex', '[a-f0-9]+');
 
+Route::get('hexroute/{hex?}', function($hex = null) {
+	return $hex;
+});
 Route::get('post/{id?}', function($id = null) {
 	if($id === null) {
 		return "id not specified";
