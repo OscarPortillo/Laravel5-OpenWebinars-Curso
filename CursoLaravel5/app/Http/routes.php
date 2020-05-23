@@ -58,7 +58,7 @@ Route::get('hexroute/{hex?}', function($hex = null) {
 	$badUrl = 'user/'.$id.'/profile';
     return "Retrieving profile $url";
 }]);*/
-
+/*
 Route::group(['prefix' => 'user'],
 	function() {
 		Route::get('/', function() {
@@ -67,4 +67,8 @@ Route::group(['prefix' => 'user'],
 		Route::get('profile', function () {
 			return 'user/profile';
 		});
-	});
+	});*/
+
+Route::get('post/{id}', [
+	'uses' => 'PostController@show'
+]);
